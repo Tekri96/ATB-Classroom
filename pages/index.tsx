@@ -8,7 +8,7 @@ const Home: NextPage = () => {
         <title>ATB Classroom</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      Hello Quiz
+      <div className='p-24 bg-sky-500'>Hello Quiz</div>
     </div>
   );
 };
