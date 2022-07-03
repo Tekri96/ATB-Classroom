@@ -1,15 +1,17 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import WelcomePage from '@/components/welcompage';
+import React from 'react';
 
 const Home: NextPage = () => {
   return (
-    <div className='flex flex-col items-center justify-center min-h-screen py-2'>
+    <React.Fragment>
       <Head>
         <title>ATB Classroom</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <div className='p-24 bg-sky-500'>Hello Quiz</div>
-    </div>
+      <WelcomePage />
+    </React.Fragment>
   );
 };
 
