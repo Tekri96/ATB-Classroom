@@ -1,13 +1,15 @@
 import React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { PAGES, PageIdentifier } from '.';
+import { PAGES, PageIdentifier, firstQuestionChoices } from '.';
 import { BiRadioCircleMarked } from 'react-icons/bi';
+import { useAppSelector, useAppDispatch } from '@/redux/hooks';
+import { updateLessonOneChoice } from '@/redux/slices/user';
 type Props = {
   gotoNextStage: (stage: PageIdentifier) => void;
 };
-const values = ['Laptop', 'Card', 'Pizza', 'Poptarts'];
 export default function UserIntro({ gotoNextStage }: Props) {
-  const [selected, setSelected] = React.useState(values[0]);
+  const { lessonOneChoice } = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
   return (
     <AnimatePresence>
       <motion.div
@@ -22,15 +24,17 @@ export default function UserIntro({ gotoNextStage }: Props) {
           className='h-[20rem] w-[25rem]'
         />
         <h1 className='text-sm font-inter'>What do you like?</h1>
-        {values.map((element) => {
+        {firstQuestionChoices.map((element) => {
           const className =
-            selected === element ? 'text-green-600 font-inter' : 'text-white';
+            lessonOneChoice === element
+              ? 'text-green-600 font-inter'
+              : 'text-white';
           return (
             <div className='flex items-center gap-2 cursor-pointer'>
               <BiRadioCircleMarked
                 key={element}
                 className={className}
-                onClick={() => setSelected(element)}
+                onClick={() => dispatch(updateLessonOneChoice(element))}
               />
               <label className={className}>{element}</label>
             </div>
@@ -41,7 +45,7 @@ export default function UserIntro({ gotoNextStage }: Props) {
 
         <button
           className='bg-[#00FF66] py-2 px-4 rounded-md text-white font-inter'
-          onClick={() => gotoNextStage(PAGES.INTRODUCTION)}>
+          onClick={() => gotoNextStage(PAGES.LESSON_TWO)}>
           Next
         </button>
       </motion.div>
