@@ -1,17 +1,13 @@
 import React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { PAGES, PageIdentifier } from '.';
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import { updateUserName } from '@/redux/slices/user';
-
+import { BiRadioCircleMarked } from 'react-icons/bi';
 type Props = {
   gotoNextStage: (stage: PageIdentifier) => void;
 };
+const values = ['Laptop', 'Card', 'Pizza', 'Poptarts'];
 export default function UserIntro({ gotoNextStage }: Props) {
-  const dispatch = useAppDispatch();
-  const { name } = useAppSelector((state) => state.user);
-  const onChangeHanlder = (e: React.ChangeEvent<HTMLInputElement>) =>
-    dispatch(updateUserName(e.target.value));
+  const [selected, setSelected] = React.useState(values[0]);
   return (
     <AnimatePresence>
       <motion.div
@@ -25,21 +21,27 @@ export default function UserIntro({ gotoNextStage }: Props) {
           alt='Bank Background'
           className='h-[20rem] w-[25rem]'
         />
-        <h1 className='text-sm font-inter'>
-          Before we get started, I would like to know you. I love making
-          friends!
-        </h1>
+        <h1 className='text-sm font-inter'>What do you like?</h1>
+        {values.map((element) => {
+          const className =
+            selected === element ? 'text-green-600' : 'text-white';
+          return (
+            <div className='flex items-center cursor-pointer'>
+              <BiRadioCircleMarked
+                key={element}
+                className={className}
+                onClick={() => setSelected(element)}
+              />
+              <label className={className}>{element}</label>
+            </div>
+          );
+        })}
+
         <br />
-        <h4 className='text-sm font-inter'>
-          Enter your name:{' '}
-          <span className='font-bold'>
-            <input value={name} onChange={onChangeHanlder} />
-          </span>
-        </h4>
-        <br />
+
         <button
           className='bg-[#00FF66] py-2 px-4 rounded-md text-white font-inter'
-          onClick={() => gotoNextStage(PAGES.LESSON_ONE)}>
+          onClick={() => gotoNextStage(PAGES.INTRODUCTION)}>
           Next
         </button>
       </motion.div>

@@ -16,7 +16,9 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["components/*"]
+      "@/components/*": ["components/*"],
+      "@/redux/*": ["redux/*"],
+      "@/redux-slices/*": ["redux/slices/*"]
     }
   },
 
