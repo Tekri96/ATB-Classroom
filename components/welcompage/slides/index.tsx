@@ -23,12 +23,11 @@ type Props = {
 
 export type ExpectedPayload = {
   name: string;
-  lessonOneChoice: string;
 };
 
 export default function Pages({ pageId, gotoNextStage }: Props) {
-  const { name, lessonOneChoice } = useAppSelector((state) => state.user);
-  const message = messageBoxText(pageId, { name, lessonOneChoice });
+  const { name } = useAppSelector((state) => state.user);
+  const message = messageBoxText(pageId, { name });
   const dispatch = useAppDispatch();
   React.useEffect(() => {
     dispatch(updateUserMessage(message));
@@ -49,28 +48,9 @@ export default function Pages({ pageId, gotoNextStage }: Props) {
 
 const messageBoxText = (pageId: PageIdentifier, payload: ExpectedPayload) => {
   switch (pageId) {
-    case PAGES.LESSON_TWO:
-      return getMessageFromLessonTwo(payload.lessonOneChoice);
     case PAGES.LESSON_ONE:
       return `Hi ${payload.name}, nice to meet you! Let's begin our first lesson. I would like to ask some quick short questions to get started. Lets Go!`;
     default:
       return "Hi! My name is XD. Welcome to the ATB Classroom. I'm so happy to have you here. Let's get started and dive in to all things finance.";
-  }
-};
-
-export const firstQuestionChoices = ['Laptop', 'Car', 'Pizza', 'Poptarts'];
-
-const getMessageFromLessonTwo = (choice: string) => {
-  switch (choice) {
-    case firstQuestionChoices[0]:
-      return "I love gadgets I've always wanted to get a Macbook. Great choice! Lets see the next question.";
-    case firstQuestionChoices[1]:
-      return ' I love cars, I want to buy a cool sports car. Great choice! Lets see the next question.';
-    case firstQuestionChoices[2]:
-      return 'I love pizzas. My favourite one would be mushroom pizza. Nice choice! Lets see the next question.';
-    case firstQuestionChoices[3]:
-      return "Sweet tooth. I like strawberry ones. Nice choice. Let's see the next question.";
-    default:
-      return '';
   }
 };
