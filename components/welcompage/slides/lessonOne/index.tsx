@@ -31,7 +31,9 @@ export default function UserIntro({ gotoNextStage }: Props) {
         <br />
         <button
           className='bg-[#00FF66] py-2 px-4 rounded-md text-white font-inter'
-          onClick={() => dispatch(updateLessonOneStage(stage + 1))}>
+          onClick={() =>
+            dispatch(updateLessonOneStage(stage + 1 > 2 ? 2 : stage + 1))
+          }>
           Next
         </button>
       </motion.div>
