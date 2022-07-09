@@ -20,7 +20,7 @@ export default function Introduction({ gotoNextStage }: Props) {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.75, duration: 0.75, ease: 'easeIn' }}>
           <img
-            src='/assets/money.png'
+            src='/assets/atb-bank.jpg'
             alt='Bank Background'
             className='h-[15rem] w-[15rem]'
           />
