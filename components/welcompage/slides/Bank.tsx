@@ -9,7 +9,7 @@ export default function Introduction({ gotoNextStage }: Props) {
   return (
     <AnimatePresence>
       <motion.div
-        key={PAGES.MONEY}
+        key={PAGES.BANK}
         initial={{ x: '100%', opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         exit={{ x: '-100%', opacity: 0 }}
@@ -25,34 +25,31 @@ export default function Introduction({ gotoNextStage }: Props) {
             className='h-[15rem] w-[15rem]'
           />
           <h1 className='w-full text-center text-md font-inter'>
-            The answer is money. Money
-            <br />
-            is what people use to buy
-            <br />
-            or sell things and services.
+            Banks are a safe place to keep your money.
           </h1>
         </motion.div>
         <br />
         <h4 className='text-sm font-inter'>
           Click this{' '}
           <a
-            href='https://www.youtube.com/watch?v=AjTwcQYgISA&ab_channel=InkwellMedia'
+            href='https://www.youtube.com/watch?v=S90pcbG6gsc&t=54s&ab_channel=EasyPeasyFinance'
             target='_blank'
             className='text-white underline'>
             link
           </a>{' '}
-          to watch a short video on the history of money!
+          to know what is a bank
         </h4>
         <h4 className='text-sm font-inter'>
           Click this{' '}
           <a
-            href='https://docs.google.com/presentation/d/16Oho8ZZXSe_Bh05PITSRFueFWgNRF4eeu8NTG5GHHxk/edit#slide=id.g13b7dc884c0_0_1163'
+            href='https://www.youtube.com/watch?v=d-6qQgvxgAE&ab_channel=EasyPeasyFinance'
             target='_blank'
             className='text-white underline'>
             link
           </a>{' '}
-          to see a small presentation on how to manage your money.
+          to watch a short video on what is a bank account
         </h4>
+
         <br />
         <button
           className='bg-[#00FF66] py-2 px-4 rounded-md text-white font-inter'

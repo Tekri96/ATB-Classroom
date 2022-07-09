@@ -2,11 +2,16 @@ import Introduction from './introduction';
 import React from 'react';
 import dynamic from 'next/dynamic';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import { ILessonOneChoices, updateUserMessage } from '@/redux/slices/user';
+import {
+  ILessonOneChoices,
+  ILessonTwoChoices,
+  updateUserMessage,
+} from '@/redux/slices/user';
 const UserIntro = dynamic(() => import('./userIntro'));
 const LessonOne = dynamic(() => import('./lessonOne'));
-const LessonTwo = dynamic(() => import('./lessonTwo'));
 const Money = dynamic(() => import('./Money'));
+const LessonTwo = dynamic(() => import('./lessonTwo'));
+const Bank = dynamic(() => import('./Bank'));
 
 export const PAGES = {
   INTRODUCTION: 'INTRODUCTION',
@@ -14,6 +19,7 @@ export const PAGES = {
   LESSON_ONE: 'LESSON_ONE',
   MONEY: 'MONEY',
   LESSON_TWO: 'LESSON_TWO',
+  BANK: 'BANK',
 } as const;
 
 export type PageIdentifier = keyof typeof PAGES;
@@ -26,11 +32,12 @@ type Props = {
 export type ExpectedPayload = {
   name: string;
   lessonOne: ILessonOneChoices;
+  lessonTwo: ILessonTwoChoices;
 };
 
 export default function Pages({ pageId, gotoNextStage }: Props) {
-  const { name, lessonOne } = useAppSelector((state) => state.user);
-  const message = messageBoxText(pageId, { name, lessonOne });
+  const { name, lessonOne, lessonTwo } = useAppSelector((state) => state.user);
+  const message = messageBoxText(pageId, { name, lessonOne, lessonTwo });
   const dispatch = useAppDispatch();
   React.useEffect(() => {
     dispatch(updateUserMessage(message));
@@ -42,10 +49,12 @@ export default function Pages({ pageId, gotoNextStage }: Props) {
       return <UserIntro gotoNextStage={gotoNextStage} />;
     case PAGES.LESSON_ONE:
       return <LessonOne gotoNextStage={gotoNextStage} />;
-    case PAGES.LESSON_TWO:
-      return <LessonTwo gotoNextStage={gotoNextStage} />;
     case PAGES.MONEY:
       return <Money gotoNextStage={gotoNextStage} />;
+    case PAGES.LESSON_TWO:
+      return <LessonTwo gotoNextStage={gotoNextStage} />;
+    case PAGES.BANK:
+      return <Bank gotoNextStage={gotoNextStage} />;
     default:
       return <Introduction gotoNextStage={gotoNextStage} />;
   }
@@ -57,6 +66,8 @@ const messageBoxText = (pageId: PageIdentifier, payload: ExpectedPayload) => {
       return updateMessageForLessonOne(payload.name, payload.lessonOne);
     case PAGES.MONEY:
       return "Congratulations on completing the first lesson. Here's a fun fact about money - The currencies of 1 Canadian dollar are nicknamed loonies, from the name of the aquatic bird present on the coin.";
+    case PAGES.LESSON_TWO:
+      return updateMessageForLessonTwo(payload.name, payload.lessonTwo);
     default:
       return "Hi! My name is XD. Welcome to the ATB Classroom. I'm so happy to have you here. Let's get started and dive in to all things finance.";
   }
@@ -84,5 +95,20 @@ const updateMessageForLessonOne = (
       return "You're about to uncover the first lesson. You got this!";
     default:
       return ``;
+  }
+};
+
+const updateMessageForLessonTwo = (
+  name: string,
+  lessonOne: ILessonTwoChoices
+) => {
+  const { stage } = lessonOne;
+  switch (stage) {
+    case 0:
+      return 'We talked about money in the first lesson. You got this. I love asking questions. Lets go!';
+    case 1:
+      return "If you said banks, you're absolutely right.";
+    default:
+      return "you're already way ahead in your journey to become a financial expert in the future. Congrats! If you didn't, no worries, you got this!";
   }
 };

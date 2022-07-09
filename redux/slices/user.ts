@@ -5,6 +5,12 @@ import { logger } from '@/redux/logger';
 
 // Define a type for the slice state
 export const lessonOneChoicesOne = ['Laptop', 'Car', 'Pizza', 'Poptarts'];
+export const lessonTwoChoicesOne = [
+  'Spend it, get your favourite thing',
+  'Count how much money you have',
+  'Give it to your parent/caregiver',
+  'Store it somewhere safe',
+];
 
 export const lessonOneChoicesTwo = [
   'Parents',
@@ -13,14 +19,27 @@ export const lessonOneChoicesTwo = [
   'Magic',
 ];
 
+export const lessonTwoChoicesTwo = [
+  'Piggy Bank',
+  'Under your Bed',
+  'Bank',
+  'With your Parents or Caregiver',
+];
+
 export interface ILessonOneChoices {
-  choice1: 'Laptop' | 'Car' | 'Pizza' | 'Poptarts';
-  choice2: 'Parents' | 'Piggy Bank' | 'Caregiver' | 'Magic';
+  choice1: typeof lessonOneChoicesOne[number];
+  choice2: typeof lessonOneChoicesTwo[number];
+  stage: number;
+}
+
+export interface ILessonTwoChoices {
+  choice1: typeof lessonTwoChoicesOne[number];
+  choice2: typeof lessonOneChoicesTwo[number];
   stage: number;
 }
 
 export type LessonChoiceKeys = 'choice1' | 'choice2';
-export type LessonKeys = 'lessonOne';
+export type LessonKeys = 'lessonOne' | 'lessonTwo';
 
 export interface ILessonPayload {
   lessonKey: LessonKeys;
@@ -31,6 +50,7 @@ interface UserState {
   name: string;
   userMessage: string;
   lessonOne: ILessonOneChoices;
+  lessonTwo: ILessonTwoChoices;
 }
 
 // Define the initial state using that type
@@ -40,6 +60,11 @@ const initialState: UserState = {
     "Hi! My name is XD. Welcome to the ATB Classroom. I'm so happy to have you here. Let's get started and dive in to all things finance.",
   lessonOne: {
     choice1: 'Laptop',
+    choice2: 'Parents',
+    stage: 0,
+  },
+  lessonTwo: {
+    choice1: 'Spend it, get your favourite thing',
     choice2: 'Parents',
     stage: 0,
   },
@@ -71,6 +96,10 @@ export const counterSlice = createSlice({
       const { payload } = action;
       state.lessonOne.stage = payload;
     },
+    updateLessonTwoStage: (state: UserState, action: PayloadAction<number>) => {
+      const { payload } = action;
+      state.lessonTwo.stage = payload;
+    },
   },
 });
 
@@ -79,6 +108,7 @@ export const {
   updateUserMessage,
   updateLesson,
   updateLessonOneStage,
+  updateLessonTwoStage,
 } = counterSlice.actions;
 
 export default counterSlice.reducer;
