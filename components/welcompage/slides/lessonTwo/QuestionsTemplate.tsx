@@ -1,54 +1,11 @@
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import {
-  ILessonPayload,
-  LessonChoiceKeys,
-  LessonKeys,
   lessonTwoChoicesOne,
   lessonOneChoicesTwo,
   updateLesson,
 } from '@/redux/slices/user';
-import { BiRadioCircleMarked } from 'react-icons/bi';
 import { Fragment } from 'react';
-
-interface IMultiQuestionUtilityProps {
-  array: string[];
-  lessonKey: LessonKeys;
-  lessonChoice: LessonChoiceKeys;
-  onChangeCallBack: (payload: ILessonPayload) => void;
-  activeChoice: string;
-}
-
-const MultiQuestionUtility = ({
-  array,
-  lessonKey,
-  lessonChoice,
-  onChangeCallBack,
-  activeChoice,
-}: IMultiQuestionUtilityProps) => (
-  <Fragment>
-    {array.map((element) => {
-      const className =
-        activeChoice === element ? 'text-green-600 font-inter' : 'text-white';
-      return (
-        <div className='flex items-center gap-2 cursor-pointer' key={element}>
-          <BiRadioCircleMarked
-            key={element}
-            className={className}
-            onClick={() => {
-              const payload: ILessonPayload = {
-                lessonKey,
-                lessonChoice,
-                value: element,
-              };
-              onChangeCallBack(payload);
-            }}
-          />
-          <label className={className}>{element}</label>
-        </div>
-      );
-    })}
-  </Fragment>
-);
+import MultiQuestionUtility from '@/components/utils/Options';
 
 const LessonTwo_QuestionOne = () => (
   <h1 className='text-sm font-inter'>

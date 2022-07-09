@@ -53,7 +53,7 @@ export default function Introduction({ gotoNextStage }: Props) {
         <br />
         <button
           className='bg-[#00FF66] py-2 px-4 rounded-md text-white font-inter'
-          onClick={() => gotoNextStage(PAGES.USER_INTRODUCTION)}>
+          onClick={() => gotoNextStage(PAGES.LESSON_TWO)}>
           Procceed to Next Lesson
         </button>
       </motion.div>

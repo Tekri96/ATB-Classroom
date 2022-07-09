@@ -68,6 +68,8 @@ const messageBoxText = (pageId: PageIdentifier, payload: ExpectedPayload) => {
       return "Congratulations on completing the first lesson. Here's a fun fact about money - The currencies of 1 Canadian dollar are nicknamed loonies, from the name of the aquatic bird present on the coin.";
     case PAGES.LESSON_TWO:
       return updateMessageForLessonTwo(payload.name, payload.lessonTwo);
+    case PAGES.BANK:
+      return "If you said banks, you're absolutely right.";
     default:
       return "Hi! My name is XD. Welcome to the ATB Classroom. I'm so happy to have you here. Let's get started and dive in to all things finance.";
   }
