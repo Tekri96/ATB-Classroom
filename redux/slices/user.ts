@@ -13,7 +13,7 @@ export const lessonOneChoicesTwo = [
   'Magic',
 ];
 
-interface ILessonOneChoices {
+export interface ILessonOneChoices {
   choice1: 'Laptop' | 'Car' | 'Pizza' | 'Poptarts';
   choice2: 'Parents' | 'Piggy Bank' | 'Caregiver' | 'Magic';
   stage: number;

@@ -30,7 +30,7 @@ const MultiQuestionUtility = ({
       const className =
         activeChoice === element ? 'text-green-600 font-inter' : 'text-white';
       return (
-        <div className='flex items-center gap-2 cursor-pointer'>
+        <div className='flex items-center gap-2 cursor-pointer' key={element}>
           <BiRadioCircleMarked
             key={element}
             className={className}
@@ -100,7 +100,7 @@ const LessoneOne_QuestionThree = () => {
   const { lessonOne } = useAppSelector((state) => state.user);
   return (
     <h1 className='text-sm font-inter'>
-      Wonder how {lessonOne.choice2} get it??
+      Wonder how {lessonOne.choice2} will get it??
     </h1>
   );
 };
