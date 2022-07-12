@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import {
   lessonTwoChoicesOne,
-  lessonOneChoicesTwo,
+  lessonTwoChoicesTwo,
   updateLesson,
 } from '@/redux/slices/user';
 import { Fragment } from 'react';
@@ -29,7 +29,7 @@ const LessonTwo_AnswerOne = () => {
   );
 };
 
-const LessonOne_QuestionTwo = () => {
+const LessonTwo_QuestionTwo = () => {
   return (
     <h1 className='text-sm font-inter'>
       What do you think is the safest place to store or keep your money?
@@ -37,14 +37,14 @@ const LessonOne_QuestionTwo = () => {
   );
 };
 
-const LessonOne_AnswerTwo = () => {
+const LessonTwo_AnswerTwo = () => {
   const {
     lessonOne: { choice2 },
   } = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
   return (
     <MultiQuestionUtility
-      array={lessonOneChoicesTwo}
+      array={lessonTwoChoicesTwo}
       lessonKey={'lessonOne'}
       lessonChoice={'choice2'}
       activeChoice={choice2}
@@ -68,8 +68,8 @@ const StageWiseQuestions = ({ stage }: StageProps) => {
     case 1:
       return (
         <Fragment>
-          <LessonOne_QuestionTwo />
-          <LessonOne_AnswerTwo />
+          <LessonTwo_QuestionTwo />
+          <LessonTwo_AnswerTwo />
         </Fragment>
       );
     default:
