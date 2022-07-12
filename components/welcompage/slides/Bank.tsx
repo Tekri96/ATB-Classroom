@@ -51,11 +51,18 @@ export default function Introduction({ gotoNextStage }: Props) {
         </h4>
 
         <br />
-        <button
-          className='bg-[#00FF66] py-2 px-4 rounded-md text-white font-inter'
-          onClick={() => gotoNextStage(PAGES.LESSON_TWO)}>
-          Procceed to Next Lesson
-        </button>
+        <div className='flex justify-around w-full px-2'>
+          <button
+            className='bg-[#00FF66] py-2 px-4 rounded-md text-white font-inter'
+            onClick={() => {}}>
+            Previous
+          </button>
+          <button
+            className='bg-[#00FF66] py-2 px-4 rounded-md text-white font-inter'
+            onClick={() => gotoNextStage(PAGES.LESSON_THREE)}>
+            Procceed to Next Lesson
+          </button>
+        </div>
       </motion.div>
     </AnimatePresence>
   );

@@ -29,14 +29,22 @@ export default function UserIntro({ gotoNextStage }: Props) {
         />
         {QuestionAnswer}
         <br />
-        <button
-          className='bg-[#00FF66] py-2 px-4 rounded-md text-white font-inter'
-          onClick={() => {
-            if (stage + 1 > 1) gotoNextStage(PAGES.BANK);
-            else dispatch(updateLessonTwoStage(stage + 1 > 1 ? 1 : stage + 1));
-          }}>
-          Next
-        </button>
+        <div className='flex justify-around w-full px-2'>
+          <button
+            className='bg-[#00FF66] py-2 px-4 rounded-md text-white font-inter'
+            onClick={() => {}}>
+            Previous
+          </button>
+          <button
+            className='bg-[#00FF66] py-2 px-4 rounded-md text-white font-inter'
+            onClick={() => {
+              if (stage + 1 > 1) gotoNextStage(PAGES.BANK);
+              else
+                dispatch(updateLessonTwoStage(stage + 1 > 1 ? 1 : stage + 1));
+            }}>
+            Next
+          </button>
+        </div>
       </motion.div>
     </AnimatePresence>
   );

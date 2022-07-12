@@ -12,6 +12,7 @@ const LessonOne = dynamic(() => import('./lessonOne'));
 const Money = dynamic(() => import('./Money'));
 const LessonTwo = dynamic(() => import('./lessonTwo'));
 const Bank = dynamic(() => import('./Bank'));
+const LessonThree = dynamic(() => import('./lessonThree'));
 
 export const PAGES = {
   INTRODUCTION: 'INTRODUCTION',
@@ -20,6 +21,7 @@ export const PAGES = {
   MONEY: 'MONEY',
   LESSON_TWO: 'LESSON_TWO',
   BANK: 'BANK',
+  LESSON_THREE: 'LESSON_THREE',
 } as const;
 
 export type PageIdentifier = keyof typeof PAGES;
@@ -55,6 +57,8 @@ export default function Pages({ pageId, gotoNextStage }: Props) {
       return <LessonTwo gotoNextStage={gotoNextStage} />;
     case PAGES.BANK:
       return <Bank gotoNextStage={gotoNextStage} />;
+    case PAGES.LESSON_THREE:
+      return <LessonThree gotoNextStage={gotoNextStage} />;
     default:
       return <Introduction gotoNextStage={gotoNextStage} />;
   }
@@ -68,6 +72,8 @@ const messageBoxText = (pageId: PageIdentifier, payload: ExpectedPayload) => {
       return "Congratulations on completing the first lesson. Here's a fun fact about money - The currencies of 1 Canadian dollar are nicknamed loonies, from the name of the aquatic bird present on the coin.";
     case PAGES.LESSON_TWO:
       return updateMessageForLessonTwo(payload.name, payload.lessonTwo);
+    case PAGES.LESSON_THREE:
+      return updateMessageForLessonThree();
     case PAGES.BANK:
       return "If you said banks, you're absolutely right.";
     default:
@@ -109,8 +115,13 @@ const updateMessageForLessonTwo = (
     case 0:
       return 'We talked about money in the first lesson. You got this. I love asking questions. Lets go!';
     case 1:
-      return "If you said banks, you're absolutely right.";
-    default:
       return "you're already way ahead in your journey to become a financial expert in the future. Congrats! If you didn't, no worries, you got this!";
+
+    default:
+      return "If you said banks, you're absolutely right.";
   }
+};
+
+const updateMessageForLessonThree = () => {
+  return "Congratulations on covering the first two lessons. We'll know cover some basic financial terms that you need to be aware about.";
 };

@@ -16,7 +16,7 @@ export const lessonOneChoicesTwo = [
   'Parents',
   'Piggy Bank',
   'Caregiver',
-  'Magic',
+  'Bank',
 ];
 
 export const lessonTwoChoicesTwo = [
