@@ -1,26 +1,41 @@
 import React from 'react';
+import { ImCross } from 'react-icons/im';
+type Props = {
+  onCloseHandler: () => void;
+  title: string;
+  descriptionImageUri: string;
+  paraContent: string;
+};
 
-type Props = {};
-
-export default function FlashElement({}: Props) {
+export default function FlashElement({
+  onCloseHandler,
+  title,
+  descriptionImageUri,
+  paraContent,
+}: Props) {
   return (
-    <div className='w-4/5 bg-white h-4/5'>
-      <img
-        src='/assets/bank.jpg'
-        className='border border-red-600 imageFlashElement h-[15rem] w-[15rem]'
-      />
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-      molestiae quas vel sint commodi repudiandae consequuntur voluptatum
-      laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga
-      praesentium optio, eaque rerum! Provident similique accusantium nemo
-      autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto
-      voluptate al iquam nihil, eveniet aliquid culpa officia aut! Impedit sit
-      sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas
-      aliquid. Reprehenderit, quia. Quo neque error repudiandae fuga? Ipsa
-      laudantium molestias eos sapiente officiis modi at sunt excepturi expedita
-      sint? Sed quibusdam recusandae alias error harum maxime adipisci amet
-      laborum. Perspiciatis minima nesciunt dolorem! Officiis iure rerum
-      voluptates a cumque velit quibusdam sed amet tempora.
+    <div className='h-full p-2 bg-white'>
+      <div aria-label='Close-Nav-Bar' className='flex justify-end w-full'>
+        <button className='duration-300 hover:scale-90 hover:text-sky-700'>
+          <ImCross onClick={onCloseHandler} />
+        </button>
+      </div>
+      <div className='flex items-center justify-center p-2'>
+        <div className=''>
+          <h1 className='text-xl font-bold font-inter'>{title}</h1>
+          <br />
+          <div className='flex flex-col w-full gap-2'>
+            {paraContent?.split('\n').map((paragraph, key) => (
+              <p key={key} className='h-full my-auto text-xs'>
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        </div>
+        <div className='h-full'>
+          <img src={descriptionImageUri} className='w-[60rem]' />
+        </div>
+      </div>
     </div>
   );
 }

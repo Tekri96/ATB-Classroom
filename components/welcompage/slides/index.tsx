@@ -22,6 +22,7 @@ export const PAGES = {
   LESSON_TWO: 'LESSON_TWO',
   BANK: 'BANK',
   LESSON_THREE: 'LESSON_THREE',
+  LESSON_FOUR: 'LESSON_FOUR',
 } as const;
 
 export type PageIdentifier = keyof typeof PAGES;
