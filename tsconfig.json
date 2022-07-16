@@ -18,7 +18,8 @@
     "paths": {
       "@/components/*": ["components/*"],
       "@/redux/*": ["redux/*"],
-      "@/redux-slices/*": ["redux/slices/*"]
+      "@/redux-slices/*": ["redux/slices/*"],
+      "@/utils/*": ["components/utils/*"]
     }
   },
 
