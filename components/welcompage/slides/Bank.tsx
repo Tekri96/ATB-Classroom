@@ -9,7 +9,6 @@ export default function Introduction({ gotoNextStage }: Props) {
   return (
     <AnimatePresence>
       <motion.div
-        key={PAGES.BANK}
         initial={{ x: '100%', opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         exit={{ x: '-100%', opacity: 0 }}

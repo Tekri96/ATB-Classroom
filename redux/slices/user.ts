@@ -26,6 +26,22 @@ export const lessonTwoChoicesTwo = [
   'With your Parents or Caregiver',
 ];
 
+export const feedbackPoints: IFeedBackPoints = {
+  learnedValuableSkills: 0,
+  learningwasIntuitive: 0,
+  learningwasEasy: 0,
+  learningwasFun: 0,
+  learningwasPractical: 0,
+};
+
+export interface IFeedBackPoints {
+  learnedValuableSkills: number;
+  learningwasIntuitive: number;
+  learningwasEasy: number;
+  learningwasFun: number;
+  learningwasPractical: number;
+}
+
 export interface ILessonOneChoices {
   choice1: typeof lessonOneChoicesOne[number];
   choice2: typeof lessonOneChoicesTwo[number];
@@ -34,7 +50,7 @@ export interface ILessonOneChoices {
 
 export interface ILessonTwoChoices {
   choice1: typeof lessonTwoChoicesOne[number];
-  choice2: typeof lessonOneChoicesTwo[number];
+  choice2: typeof lessonTwoChoicesTwo[number];
   stage: number;
 }
 
@@ -46,11 +62,17 @@ export interface ILessonPayload {
   lessonChoice: LessonChoiceKeys;
   value: string;
 }
+
+export interface IFeedBackPayload {
+  feedbackKey: keyof IFeedBackPoints;
+  value: number;
+}
 interface UserState {
   name: string;
   userMessage: string;
   lessonOne: ILessonOneChoices;
   lessonTwo: ILessonTwoChoices;
+  feedback: IFeedBackPoints;
 }
 
 // Define the initial state using that type
@@ -65,9 +87,10 @@ const initialState: UserState = {
   },
   lessonTwo: {
     choice1: 'Spend it, get your favourite thing',
-    choice2: 'Parents',
+    choice2: 'Piggy Bank',
     stage: 0,
   },
+  feedback: feedbackPoints,
 };
 
 export const counterSlice = createSlice({
@@ -100,6 +123,13 @@ export const counterSlice = createSlice({
       const { payload } = action;
       state.lessonTwo.stage = payload;
     },
+    updateFeedback: (
+      state: UserState,
+      action: PayloadAction<IFeedBackPayload>
+    ) => {
+      const { feedbackKey, value } = action.payload;
+      state.feedback[feedbackKey] = value;
+    },
   },
 });
 
@@ -109,6 +139,7 @@ export const {
   updateLesson,
   updateLessonOneStage,
   updateLessonTwoStage,
+  updateFeedback,
 } = counterSlice.actions;
 
 export default counterSlice.reducer;

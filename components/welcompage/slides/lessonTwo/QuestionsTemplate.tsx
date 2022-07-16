@@ -6,11 +6,10 @@ import {
 } from '@/redux/slices/user';
 import { Fragment } from 'react';
 import MultiQuestionUtility from '@/components/utils/Options';
+import QuestionTemplate from '@/components/utils/QuestionTemplate';
 
 const LessonTwo_QuestionOne = () => (
-  <h1 className='text-sm font-inter'>
-    Questions: What is the first thing you think about when you have money?
-  </h1>
+  <QuestionTemplate questionString=' What do you think is the safest place to store or keep your money?' />
 );
 
 const LessonTwo_AnswerOne = () => {
@@ -31,21 +30,20 @@ const LessonTwo_AnswerOne = () => {
 
 const LessonTwo_QuestionTwo = () => {
   return (
-    <h1 className='text-sm font-inter'>
-      What do you think is the safest place to store or keep your money?
-    </h1>
+    <QuestionTemplate questionString='What do you think is the safest place to store or keep your money?' />
   );
 };
 
 const LessonTwo_AnswerTwo = () => {
   const {
-    lessonOne: { choice2 },
+    lessonTwo: { choice2 },
   } = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
+
   return (
     <MultiQuestionUtility
       array={lessonTwoChoicesTwo}
-      lessonKey={'lessonOne'}
+      lessonKey={'lessonTwo'}
       lessonChoice={'choice2'}
       activeChoice={choice2}
       onChangeCallBack={(payload) => dispatch(updateLesson(payload))}

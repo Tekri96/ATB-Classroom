@@ -7,6 +7,7 @@ import {
   ILessonTwoChoices,
   updateUserMessage,
 } from '@/redux/slices/user';
+import FeedbackSection from './Feedback';
 const UserIntro = dynamic(() => import('./userIntro'));
 const LessonOne = dynamic(() => import('./lessonOne'));
 const Money = dynamic(() => import('./Money'));
@@ -23,6 +24,7 @@ export const PAGES = {
   BANK: 'BANK',
   LESSON_THREE: 'LESSON_THREE',
   LESSON_FOUR: 'LESSON_FOUR',
+  FEEDBACK: 'FEEDBACK',
 } as const;
 
 export type PageIdentifier = keyof typeof PAGES;
@@ -60,6 +62,8 @@ export default function Pages({ pageId, gotoNextStage }: Props) {
       return <Bank gotoNextStage={gotoNextStage} />;
     case PAGES.LESSON_THREE:
       return <LessonThree gotoNextStage={gotoNextStage} />;
+    case PAGES.FEEDBACK:
+      return <FeedbackSection gotoNextStage={gotoNextStage} />;
     default:
       return <Introduction gotoNextStage={gotoNextStage} />;
   }
@@ -77,6 +81,8 @@ const messageBoxText = (pageId: PageIdentifier, payload: ExpectedPayload) => {
       return updateMessageForLessonThree();
     case PAGES.BANK:
       return "If you said banks, you're absolutely right.";
+    case PAGES.FEEDBACK:
+      return 'Thanks for your active participation. Please give us a feedback so that we can improve the learning experience.';
     default:
       return "Hi! My name is XD. Welcome to the ATB Classroom. I'm so happy to have you here. Let's get started and dive in to all things finance.";
   }

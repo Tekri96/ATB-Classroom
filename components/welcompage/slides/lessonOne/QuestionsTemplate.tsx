@@ -1,18 +1,15 @@
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import {
-  ILessonPayload,
-  LessonChoiceKeys,
-  LessonKeys,
   lessonOneChoicesOne,
   lessonOneChoicesTwo,
   updateLesson,
 } from '@/redux/slices/user';
-import { BiRadioCircleMarked } from 'react-icons/bi';
 import { Fragment } from 'react';
 import MultiQuestionUtility from '@/components/utils/Options';
+import QuestionTemplate from '@/components/utils/QuestionTemplate';
 
 const LessonOne_QuestionOne = () => (
-  <h1 className='text-sm font-inter'>What do you like?</h1>
+  <QuestionTemplate questionString='What do you like?' />
 );
 
 const LessonOne_AnswerOne = () => {
@@ -35,9 +32,9 @@ const LessonOne_QuestionTwo = () => {
   const { lessonOne } = useAppSelector((state) => state.user);
 
   return (
-    <h1 className='text-sm font-inter'>
-      How will you get {lessonOne.choice1}?
-    </h1>
+    <QuestionTemplate
+      questionString={`How will you get ${lessonOne.choice1}?`}
+    />
   );
 };
 
@@ -60,9 +57,9 @@ const LessonOne_AnswerTwo = () => {
 const LessoneOne_QuestionThree = () => {
   const { lessonOne } = useAppSelector((state) => state.user);
   return (
-    <h1 className='text-sm font-inter'>
-      Wonder how {lessonOne.choice2} will get it??
-    </h1>
+    <QuestionTemplate
+      questionString={`Wonder how ${lessonOne.choice2} will get it??`}
+    />
   );
 };
 

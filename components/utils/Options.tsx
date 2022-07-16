@@ -5,7 +5,7 @@ import {
 } from '@/redux/slices/user';
 import { Fragment } from 'react';
 import { BiRadioCircleMarked } from 'react-icons/bi';
-
+import { motion } from 'framer-motion';
 interface IMultiQuestionUtilityProps {
   array: string[];
   lessonKey: LessonKeys;
@@ -27,9 +27,12 @@ const MultiQuestionUtility = ({
           ? 'text-green-600 font-inter cursor-pointer'
           : 'text-white cursor-pointer';
       return (
-        <div
-          className='flex items-center gap-2 cursor-pointer'
+        <motion.div
           key={element}
+          initial={{ x: '100%', opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.75, delay: 0.5, ease: 'easeIn' }}
+          className='flex items-center gap-2 cursor-pointer'
           onClick={() => {
             const payload: ILessonPayload = {
               lessonKey,
@@ -38,9 +41,9 @@ const MultiQuestionUtility = ({
             };
             onChangeCallBack(payload);
           }}>
-          <BiRadioCircleMarked key={element} className={className} />
+          <BiRadioCircleMarked className={className} />
           <label className={className}>{element}</label>
-        </div>
+        </motion.div>
       );
     })}
   </Fragment>

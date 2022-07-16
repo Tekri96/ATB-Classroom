@@ -125,17 +125,26 @@ export default function UserIntro({ gotoNextStage }: Props) {
         exit={{ x: '-100%', opacity: 0 }}
         transition={{ duration: 0.75, ease: 'easeIn' }}>
         <div
-          className='grid w-full h-full grid-cols-5 gap-2 p-4 border'
+          className='grid w-full h-full grid-cols-5 gap-2 p-4'
           aria-label='Flash-Cards'>
           {FlashCards.map((card) => (
             <FlashCard {...card} id={card.key} />
           ))}
         </div>
-        <button
-          className='bg-[#00FF66] py-2 px-4 rounded-md text-white font-inter'
-          onClick={() => gotoNextStage(PAGES.LESSON_FOUR)}>
-          Move to Next Section
-        </button>
+        <div className='flex justify-around w-full px-2'>
+          <button
+            className='bg-[#00FF66] py-2 px-4 rounded-md text-white font-inter'
+            onClick={() => {
+              gotoNextStage(PAGES.BANK);
+            }}>
+            Previous
+          </button>
+          <button
+            className='bg-[#00FF66] py-2 px-4 rounded-md text-white font-inter'
+            onClick={() => gotoNextStage(PAGES.FEEDBACK)}>
+            Move to Next Section
+          </button>
+        </div>
       </motion.div>
     </AnimatePresence>
   );
