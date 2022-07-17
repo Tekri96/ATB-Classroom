@@ -12,6 +12,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: npm install
+      - run: |
+          touch .env.local
+          echo NEXT_PUBLIC_FB_CLIENT_API_KEY=${{ secrets.NEXT_PUBLIC_FB_CLIENT_API_KEY }} >> .env.local
+          echo NEXT_PUBLIC_FB_CLIENT_AUTH_DOMAIN=${{ secrets.NEXT_PUBLIC_FB_CLIENT_AUTH_DOMAIN }} >> .env.local
+          echo NEXT_PUBLIC_FB_CLIENT_STORAGE_BUCKET=${{ secrets.NEXT_PUBLIC_FB_CLIENT_STORAGE_BUCKET }} >> .env.local
+          echo NEXT_PUBLIC_FB_CLIENT_MESSAGING_SENDER_ID=${{ secrets.NEXT_PUBLIC_FB_CLIENT_MESSAGING_SENDER_ID }} >> .env.local
+          echo NEXT_PUBLIC_FB_CLIENT_PROJECT_ID=${{ secrets.NEXT_PUBLIC_FB_CLIENT_PROJECT_ID }} >> .env.local
+          echo NEXT_PUBLIC_FB_CLIENT_APP_ID=${{ secrets.NEXT_PUBLIC_FB_CLIENT_APP_ID }} >> .env.local
+          echo NEXT_PUBLIC_FB_CLIENT_MEASUREMENT_ID=${{ secrets.NEXT_PUBLIC_FB_CLIENT_MEASUREMENT_ID }} >> .env.local
       - run: npm run export
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
