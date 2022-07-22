@@ -31,12 +31,20 @@ Congratulations, Frank has just invested in your company. He became a co-owner o
   },
   {
     imageUri: '/flash-cards/investments.jpg',
-    descriptionImageUri: '/flash-cards/investments.jpeg',
-    paraContent: `Say you have lemonade stand. You built it, you buy the lemons and the sugar and the cups, and any profit left after doing those things is all yours. You're the sole owner.
-Now, your lemonade is delicious and the stand is doing really well. You'd like to open another one and hire some helpers to run it for you. You could wait until you pile up enough profit, though that might take a long time. You could go to the bank and ask them to lend you money, but banks are pretty stingy about who they'll lend money to and they'll want you to pay it back with interest.
-Or, you could go to your rich buddy Frank and say, hey, you know me, you know how awesome my lemonade is, how about you give me the money to build a new stand and I'll split the profits with you even-steven? Franks says sure.
-Congratulations, Frank has just invested in your company. He became a co-owner of the company, giving you the money in the hope that he'll eventually get back even more money in profits as your company grows. That's investing , and it comes in two basic varieties: Buying something in the hope that it will be worth more in the future, or lending someone money and having them pay you back with interest.`,
-    title: 'Investing',
+    descriptionImageUri: '/flash-cards/insurance.jpeg',
+    paraContent: `Let's say you go to school with 10 other kids and one bad guy Frank who is always stealing one kid's lunch money. Every single day the bad guy finds one random kid and steals their $5.
+    But the teacher's aren't doing anything about it.  But you are up to solve this issue.
+    Fortunately, you're someone who loves math and you come up with a exciting idea.
+    You go to the other kids and tell them that if they give you just $0.75 then you'll buy them lunch if the bad guy Frank steals their money. You're selling them lunch insurance.
+    The other kids think this is okay. They give you $0.75/day which leaves them $4.25 for lunch, which is still enough for a decent lunch. If the bad guy Frank does take their $4.25, you buy them a $5 lunch. Sweet deal for them.
+    How about for you? What do you get for your brilliant math skills?
+    Well, every day you collect $7.50 (10 X $.75) and you pay for one person's lunch ($5).
+    That means:
+    You make $2.50 /day
+    The bad guy Frank still makes  $4.25/day 
+    No kid ever goes without a lunch.
+    Considering the circumstances, it's a pretty sweet deal for everyone, right? This is insurance!`,
+    title: 'Insurance',
     key: 'cards',
   },
   {

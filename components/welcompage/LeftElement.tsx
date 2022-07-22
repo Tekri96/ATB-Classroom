@@ -15,31 +15,33 @@ function LeftElement({ userMessage }: Props) {
     }
   }, [userMessage]);
   return (
-    <div className='self-center h-full'>
-      <div className='relative flex flex-col justify-center'>
-        <div className='absolute translate-x-full translate-y-full'>
+    <div className='self-center h-full mx-2'>
+      <div className='flex flex-col items-center justify-center h-full'>
+        <div className='flex flex-col items-center justify-center'>
           <AnimatePresence key={userMessage}>
-            <motion.div className='absolute top-0 w-64 p-2 translate-x-4 bg-white min-h-20 -translate-y-2/3'>
-              <div className='absolute bottom-0 flex w-6 h-8 translate-y-full bg-white triangle' />
+            <motion.div className='mx-2'>
               {mounted ? (
-                <motion.p
+                <motion.div
                   initial={{ scale: 0, opacity: 0 }}
                   animate={{
                     scale: 1,
                     opacity: 1,
                   }}
-                  transition={{ duration: 1.5, ease: 'easeOut' }}
-                  className='text-xs font-inter'>
-                  {userMessage}
-                </motion.p>
+                  transition={{ duration: 1.5, ease: 'easeOut' }}>
+                  <motion.p className='p-2 text-xs bg-white font-inter'>
+                    {userMessage}
+                  </motion.p>
+                  <div className='flex justify-center w-full text-center'>
+                    <div className='w-6 h-8 -mt-2 bg-white triangle' />
+                  </div>
+                </motion.div>
               ) : null}
             </motion.div>
           </AnimatePresence>
-
           <img
             src='/assets/boy.png'
             alt='Boy Image'
-            className='h-[12rem] mt-16'
+            className='h-[12rem] -ml-2 mt-2'
           />
         </div>
       </div>

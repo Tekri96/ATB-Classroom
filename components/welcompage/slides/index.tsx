@@ -10,7 +10,7 @@ import {
 import FeedbackSection from './Feedback';
 const UserIntro = dynamic(() => import('./userIntro'));
 const LessonOne = dynamic(() => import('./lessonOne'));
-const Money = dynamic(() => import('./Money'));
+const Money = dynamic(() => import('./money'));
 const LessonTwo = dynamic(() => import('./lessonTwo'));
 const Bank = dynamic(() => import('./Bank'));
 const LessonThree = dynamic(() => import('./lessonThree'));
