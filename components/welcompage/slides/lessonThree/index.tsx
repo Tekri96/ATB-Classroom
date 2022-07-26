@@ -48,14 +48,13 @@ Congratulations, Frank has just invested in your company. He became a co-owner o
     key: 'cards',
   },
   {
-    imageUri: '/flash-cards/investments.jpg',
-    descriptionImageUri: '/flash-cards/investments.jpeg',
-    paraContent: `Say you have lemonade stand. You built it, you buy the lemons and the sugar and the cups, and any profit left after doing those things is all yours. You're the sole owner.
-Now, your lemonade is delicious and the stand is doing really well. You'd like to open another one and hire some helpers to run it for you. You could wait until you pile up enough profit, though that might take a long time. You could go to the bank and ask them to lend you money, but banks are pretty stingy about who they'll lend money to and they'll want you to pay it back with interest.
-Or, you could go to your rich buddy Frank and say, hey, you know me, you know how awesome my lemonade is, how about you give me the money to build a new stand and I'll split the profits with you even-steven? Franks says sure.
-Congratulations, Frank has just invested in your company. He became a co-owner of the company, giving you the money in the hope that he'll eventually get back even more money in profits as your company grows. That's investing , and it comes in two basic varieties: Buying something in the hope that it will be worth more in the future, or lending someone money and having them pay you back with interest.`,
-    title: 'Investing',
-    key: 'cards-02',
+    imageUri: '/flash-cards/tax-returns.jpg',
+    descriptionImageUri: '/flash-cards/tax-return.jpeg',
+    paraContent: `Your future employer takes a certain percentage of your income every pay cheque and instead of paying it to you, it gets paid to the government instead.
+    A tax return is your opportunity to prove to the government that they took too much and that they should give some of it back to you.
+    So a tax return is a document that lists off how much money you officially earned in the past year, how much you saved, invested, spent, donated, etc. After all those values are calculated together with complicated formulas (that change from year to year!), a number gets spit out that tells you and the government how much more tax money they took from you compared to what they should have. That number is the amount of money that is returned to you.`,
+    title: 'Tax Returns',
+    key: 'tax-returns',
   },
   {
     imageUri: '/flash-cards/investments.jpg',

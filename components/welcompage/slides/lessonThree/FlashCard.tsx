@@ -17,7 +17,7 @@ export default function FlashCard(props: IFlashCardProps) {
     <React.Fragment>
       <motion.div
         layoutId={id}
-        className='flex flex-col items-center p-1 bg-white rounded-md'
+        className='flex flex-col items-center p-1 transition-all duration-300 bg-white rounded-md cursor-pointer hover:scale-90'
         onClick={() => setSelectedId(id)}>
         <img
           src={imageUri}

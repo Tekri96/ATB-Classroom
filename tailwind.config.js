@@ -5,6 +5,9 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
+    transform: {
+      flashTurn: 'scale(0.95) rotate(2360deg)',
+    },
     extend: {
       fontFamily: {
         inter: "font-family: 'Inter', sans-serif",
