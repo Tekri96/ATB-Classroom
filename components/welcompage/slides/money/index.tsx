@@ -2,8 +2,8 @@ import React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { PageIdentifier, PAGES } from '..';
 import Popup from '@/components/utils/Popup';
-import VideoComponent from './VideoComponent';
-import PowerPoint from './PowerPoint';
+import VideoComponent from '@/components/utils/VideoComponent';
+import PowerPoint from '@/components/utils/PowerPoint';
 
 type Props = {
   gotoNextStage: (stage: PageIdentifier) => void;
@@ -55,7 +55,14 @@ export default function Introduction({ gotoNextStage }: Props) {
             show={showYTVideoPopup}
           />
           <Popup
-            Component={<PowerPoint />}
+            Component={
+              <PowerPoint
+                onCloseHandler={hidePPTPopup}
+                iframeSrc={
+                  'https://docs.google.com/presentation/d/e/2PACX-1vQxLsAD5aHcdSE4x6QgfgYl_VKAFnLBRCCbmFEZE5rqx2Fv5DYDP6VxT572e-8XQ9nVXPXZjzLBuGeo/embed?start=false&loop=true&delayms=3000'
+                }
+              />
+            }
             onCloseHandler={hidePPTPopup}
             show={showPPTPopup}
           />
@@ -91,7 +98,7 @@ export default function Introduction({ gotoNextStage }: Props) {
           to see a small presentation on how to manage your money.
         </h4>
         <br />
-        <div className='flex items-center justify-between w-full'>
+        <div className='flex justify-around w-full px-2'>
           <button
             className='bg-[#00FF66] py-2 px-4 rounded-md text-white font-inter'
             onClick={() => gotoNextStage(PAGES.LESSON_ONE)}>

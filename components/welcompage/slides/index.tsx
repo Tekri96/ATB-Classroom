@@ -82,7 +82,7 @@ const messageBoxText = (pageId: PageIdentifier, payload: ExpectedPayload) => {
     case PAGES.BANK:
       return "If you said banks, you're absolutely right.";
     case PAGES.FEEDBACK:
-      return 'Thanks for your active participation. Please give us a feedback so that we can improve the learning experience.';
+      return 'XD GoodBye Tip : Take a good look at your bank statement weekly at least. Bring consciousness to your finance. This will shape what you want your financial reality to be.';
     default:
       return "Hi! My name is XD. Welcome to the ATB Classroom. I'm so happy to have you here. Let's get started and dive in to all things finance.";
   }
