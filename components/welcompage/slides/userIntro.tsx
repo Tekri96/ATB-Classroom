@@ -38,7 +38,7 @@ export default function UserIntro({ gotoNextStage }: Props) {
         </h4>
         <br />
         <button
-          className='bg-[#00FF66] py-2 px-4 rounded-md text-white font-inter'
+          className='bg-button py-2 px-4 rounded-md text-white font-inter'
           onClick={() => gotoNextStage(PAGES.LESSON_ONE)}>
           Next
         </button>

@@ -32,7 +32,7 @@ function LeftElement({ userMessage }: Props) {
                     {userMessage}
                   </motion.p>
                   <div className='flex justify-center w-full text-center'>
-                    <div className='w-6 h-8 -mt-2 bg-white triangle' />
+                    <div className='w-6 h-8 -mt-2 bg-white border triangle' />
                   </div>
                 </motion.div>
               ) : null}

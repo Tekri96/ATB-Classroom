@@ -38,7 +38,7 @@ export default function FlashElement({
         transition={{ duration: 0.5, ease: 'easeOut' }}
         className='h-full p-2 bg-white'>
         <div aria-label='Close-Nav-Bar' className='flex justify-end w-full'>
-          <button className='duration-300 hover:scale-90 hover:text-sky-700'>
+          <button className='duration-300 hover:scale-90'>
             <ImCross onClick={onCloseHandler} />
           </button>
         </div>

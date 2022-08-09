@@ -17,14 +17,14 @@ export default function FlashCard(props: IFlashCardProps) {
     <React.Fragment>
       <motion.div
         layoutId={id}
-        className='flex flex-col items-center p-1 transition-all duration-300 bg-white rounded-md cursor-pointer hover:scale-90'
+        className='flex flex-col items-center p-2 gap-2 transition-all duration-300 bg-[#27363B] rounded-md cursor-pointer hover:scale-90'
         onClick={() => setSelectedId(id)}>
         <img
           src={imageUri}
           alt='Investing'
           className='flex-auto w-[10rem] h-[10rem]'
         />
-        <h1 className='text-center text-md font-inter'>{title}</h1>
+        <h1 className='text-center text-white text-md font-inter'>{title}</h1>
       </motion.div>
       <Popup
         Component={

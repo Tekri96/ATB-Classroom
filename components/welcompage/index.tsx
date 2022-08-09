@@ -9,7 +9,7 @@ export default function WelcomePage() {
   const gotoNextStage = (stage: PageIdentifier) => setPage(stage);
   const { userMessage } = useAppSelector((state) => state.user);
   return (
-    <div className='w-screen h-screen pageLayoutGrid bg-[#5ABCE6] overflow-hidden flex items-center justify-center'>
+    <div className='w-screen h-screen pageLayoutGrid bg-[#bfe4f3] overflow-hidden flex items-center justify-center'>
       <LeftElement userMessage={userMessage} />
 
       <motion.div
