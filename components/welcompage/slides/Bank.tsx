@@ -98,7 +98,7 @@ export default function Introduction({ gotoNextStage }: Props) {
         <div className='flex justify-around w-full px-2'>
           <button
             className='bg-[#00FF66] py-2 px-4 rounded-md text-white font-inter'
-            onClick={() => {}}>
+            onClick={() => gotoNextStage(PAGES.LESSON_TWO)}>
             Previous
           </button>
           <button

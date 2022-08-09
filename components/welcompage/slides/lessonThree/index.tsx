@@ -112,11 +112,13 @@ Congratulations, Frank has just invested in your company. He became a co-owner o
     key: 'cards-07',
   },
   {
-    imageUri: '/flash-cards/estateplanning.png',
-    descriptionImageUri: '/flash-cards/estateplanning.jpg',
-    paraContent: `Estate planning is needed before a person dies. One can decide how their assets (property, money, jewelry, vehicles, etc.) will be distributed after their death. There are legal procedures involved. A will is written properly, and there are laws of inheritance that will be followed. A will is a legal document that expresses a person's wishes as to how their properties and more assets will be distributed after their death and who will get those.
-    A father of 2 died before writing a will and the children fought a court case to get ownership of assets. The judge then decided who would get what and how much because there was no will. So, it is always better to do estate planning so your assets go where you want them to. `,
-    title: 'Estate Planning',
+    imageUri: '/flash-cards/donating.png',
+    descriptionImageUri: '/flash-cards/donatingDesc.png',
+    paraContent: `Giving promotes feelings of happiness. Helping others feels good.
+    Benefits of Charity - You can help out local communities or groups of people or causes in need. 
+    Steps - Choose your cause, Choose the amount, Make your donation.
+    ATB Cares - ATB will match 20% of every dollar donated to Alberta-based, non-religious charities through this site, up to $30,000 per month. Eligible causes may receive up to $5,000 of matching per year (April 1-March 31). Individual donations qualify for a maximum donation match of $500.`,
+    title: 'Donating',
     key: 'cards-08',
   },
 ];
