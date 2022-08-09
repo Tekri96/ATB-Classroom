@@ -9,7 +9,7 @@ import MultiQuestionUtility from '@/components/utils/Options';
 import QuestionTemplate from '@/components/utils/QuestionTemplate';
 
 const LessonOne_QuestionOne = () => (
-  <QuestionTemplate questionString='What do you like?' />
+  <QuestionTemplate questionString='Which of the following would you like to have/buy?' />
 );
 
 const LessonOne_AnswerOne = () => {
