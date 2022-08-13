@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Slides, { PageIdentifier, PAGES } from './slides';
 import { useAppSelector } from '@/redux/hooks';
 import LeftElement from './LeftElement';
+import Link from 'next/link';
 
 export default function WelcomePage() {
   const [page, setPage] = React.useState<PageIdentifier>(PAGES.INTRODUCTION);
@@ -18,6 +19,14 @@ export default function WelcomePage() {
         className='flex flex-col items-center justify-center w-full h-full'>
         <Slides pageId={page} gotoNextStage={gotoNextStage} />
       </motion.div>
+      <div className='p-2'>
+        Developed By{' '}
+        <span>
+          <Link href='https://www.linkedin.com/in/saurabh-anand-b018a0166/'>
+            <a className='text-blue-600 underline'> Saurabh Anand</a>
+          </Link>
+        </span>
+      </div>
     </div>
   );
 }
